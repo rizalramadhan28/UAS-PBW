@@ -1,13 +1,22 @@
 <?php
-session_start();
+
+// 1. Panggil file konfigurasi yang berisi BASE_URL LEBIH DULU
+require_once '../config/koneksi.php'; // Sesuaikan path '../config.php' dengan lokasi file aslimu
+
+// 2. Baru panggil navbar yang menggunakan BASE_URL tersebut
+include '../users/navbar_admin.php';
+
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['login']) || $_SESSION['role'] != "admin") {
     header("Location: ../users/login.php");
     exit;
 }
 
-include '../users/navbar_admin.php';
-include '../config/koneksi.php';
+
 
 // Filter tanggal (opsional)
 $tgl_awal  = isset($_GET['tgl_awal'])  && $_GET['tgl_awal']  != '' ? $_GET['tgl_awal']  : null;
