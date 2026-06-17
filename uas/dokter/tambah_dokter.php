@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 
 // Hanya admin yang boleh akses
