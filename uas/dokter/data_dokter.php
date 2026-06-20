@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 
 include '../config/koneksi.php';
@@ -51,6 +51,7 @@ $query = mysqli_query($conn, "SELECT * FROM dokter WHERE aktif = 1 ORDER BY id_d
                         <th>NIP</th>
                         <th>SIP</th>
                         <th>Poli (Spesialis)</th>
+                        <th>Sub Spesialis</th>
                         <th>No. HP</th>
                         <th style="text-align:right;">Aksi</th>
                     </tr>

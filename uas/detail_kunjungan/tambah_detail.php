@@ -127,6 +127,28 @@ function fmt_tgl_short($d) {
                 </div>
 
                 <div class="form-group">
+                    <label>Obat (stok &gt; 0)</label>
+                    <select name="id_obat" required>
+                        <option value="">— Pilih obat —</option>
+                        <?php while ($o = mysqli_fetch_assoc($obat_list)): ?>
+                            <option value="<?= (int)$o['id_obat'] ?>">
+                                <?= htmlspecialchars($o['nama_obat']) ?>
+                                (sisa <?= (int)$o['stok'] ?> <?= htmlspecialchars($o['satuan'] ?? '') ?>)
+                            </option>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah</label>
+                    <div class="stepper">
+                        <button type="button" onclick="stepJumlah(-1)" aria-label="Kurangi jumlah">−</button>
+                        <input type="number" id="jumlah" name="jumlah_obat" min="1" value="<?= max(1, (int)($_POST['jumlah_obat'] ?? 1)) ?>" required>
+                        <button type="button" onclick="stepJumlah(1)" aria-label="Tambah jumlah">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label>Jumlah</label>
                     <div class="stepper">
                         <button type="button" onclick="stepJumlah(-1)" aria-label="Kurangi jumlah">−</button>

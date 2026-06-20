@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 
 // Hanya admin yang boleh akses
@@ -124,6 +124,12 @@ if (isset($_POST['simpan'])) {
                     <label>Nomor HP</label>
                     <input type="text" name="no_hp" placeholder="08xxxxxxxxxx"
                            value="<?= htmlspecialchars($_POST['no_hp'] ?? '') ?>">
+                </div>
+
+                <div class="form-group">
+                    <label>Sub Spesialis</label>
+                    <input type="text" name="sub_spesialis" placeholder="Sub Spesialis"
+                           value="<?= htmlspecialchars($_POST['sub_spesialis'] ?? '') ?>">
                 </div>
             </div>
 
